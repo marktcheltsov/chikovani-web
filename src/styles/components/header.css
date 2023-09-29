@@ -16,4 +16,9 @@
 
 .header__nav-link {
     margin-right: 7px;
+    color: #C0C0C0;
+}
+
+.header__nav-link_acive {
+    color: #FFF;
 }

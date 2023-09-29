@@ -1,0 +1,52 @@
+/* DropdownMenu.css */
+
+/* Стили для обертки выпадающего меню */
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Стили для кнопки */
+  .dropdown-button {
+    background-color: #333; /* Цвет фона кнопки */
+    color: #fff; /* Цвет текста кнопки */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  /* Стили для выпадающего контента */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #444; /* Цвет фона выпадающего контента */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  /* Стили для элементов выпадающего контента */
+  .dropdown-item {
+    color: #fff; /* Цвет текста элементов */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* При наведении на элементы меню */
+  .dropdown-item:hover {
+    background-color: #555; /* Цвет фона при наведении */
+  }
+  
+  /* Стили для оверлея, который закрывает меню при клике вне него */
+  .dropdown-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: 0; /* Ниже выпадающего контента */
+  }
+  
