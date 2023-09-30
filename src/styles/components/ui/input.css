@@ -4,9 +4,17 @@
     padding: 5px;
     display: flex;
     align-items: center;
-    transition: border-color 0.3s ease;
-    border-color: #27272A;
+    transition: border-color color 0.3s ease;
+    border-color: #333333;
     margin: 10px;
+}
+
+.input__container_error {
+    border-color: #7F1D1D;
+}
+
+.input__container_success {
+    border-color: #33CC66;
 }
 
 .input {
@@ -16,14 +24,20 @@
     background: none;
     outline: none;
     color: #FFF;
+    width: 100%;
+    font-weight: bold;
 }
 
 .input::placeholder {
-    color: #27272A;
+    color: #333333;
 }
   
 .input:focus {
     border: none;
     box-shadow: none;
 }
-  
+
+.input__container:focus-within {
+    border-color: #FFF; /* Изменение цвета рамки контейнера */
+    color: #FFF; /* Изменение цвета текста на белый */
+}

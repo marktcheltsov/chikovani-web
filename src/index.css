@@ -23,6 +23,19 @@ p {
 
 }
 
+.dropdown-menu-box {
+  display: flex;
+  margin: 0 10px 10px 10px;
+  gap: 5px;
+}
+
+.buttons-box {
+  display: flex;
+  margin: 0 10px 10px 10px;
+  gap: 5px;
+  flex-direction: column;
+}
+
 .create-event {
   width: 75%;
   margin: 40px auto;

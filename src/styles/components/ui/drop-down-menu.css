@@ -1,52 +1,64 @@
 /* DropdownMenu.css */
-
-/* Стили для обертки выпадающего меню */
-.dropdown {
+.dropdown-menu {
     position: relative;
-    display: inline-block;
-  }
-  
-  /* Стили для кнопки */
-  .dropdown-button {
-    background-color: #333; /* Цвет фона кнопки */
-    color: #fff; /* Цвет текста кнопки */
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
+    transition: border-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    border: 2px solid #333333;
     border-radius: 5px;
-  }
+    padding: 5px;
+    width: 100%;
+}
+
+.dropdown-menu_active {
+    border: 2px solid #fff;
+    color: #fff;
+}
   
-  /* Стили для выпадающего контента */
-  .dropdown-content {
-    display: none;
+.dropdown-menu_active .dropdown-button {
+    color: #fff;
+    transition: color 0.4s ease;
+}
+
+.dropdown-button {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    color: #333333;
+}
+  
+.dropdown-list {
+    border-radius: 5px;
     position: absolute;
-    background-color: #444; /* Цвет фона выпадающего контента */
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-  
-  /* Стили для элементов выпадающего контента */
-  .dropdown-item {
-    color: #fff; /* Цвет текста элементов */
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  /* При наведении на элементы меню */
-  .dropdown-item:hover {
-    background-color: #555; /* Цвет фона при наведении */
-  }
-  
-  /* Стили для оверлея, который закрывает меню при клике вне него */
-  .dropdown-overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    top: 100%;
     left: 0;
-    background-color: transparent;
-    z-index: 0; /* Ниже выпадающего контента */
-  }
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 0 0;
+    background-color: #09090B;
+    border: 2px solid #ccc;
+    visibility: hidden;
+    width: 100%;
+    z-index: 5;
+}
+  
+
+.dropdown-list.show {
+    display: block;
+    visibility: visible; /* изменено на visibility: visible; */
+}
+  
+.dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+  
+.dropdown-list.show {
+    display: block;
+}
   

@@ -1,36 +1,67 @@
-import React, { useState } from 'react';
-import '../../styles/components/ui/drop-down-menu.css'; // Подключите свои стили
+import React, { useState, useRef, useEffect } from 'react';
+import '../../styles/components/ui/drop-down-menu.css';
 
-function DropdownMenu({ title, items }) {
+const DropdownMenu = ({ options, onSelect, icon: Icon, placeholder }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const containerRef = useRef(null);
 
-  const toggleDropdown = () => {
+  const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const closeDropdown = () => {
+  const closeMenu = () => {
     setIsOpen(false);
   };
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
+    setIsOpen(false);
+    onSelect(option);
+  };
+
+  const handleOutsideClick = (e) => {
+    if (containerRef.current && !containerRef.current.contains(e.target)) {
+      closeMenu();
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Escape') {
+      closeMenu();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('click', handleOutsideClick);
+    window.addEventListener('keydown', handleKeyPress);
+    return () => {
+      window.removeEventListener('click', handleOutsideClick);
+      window.removeEventListener('keydown', handleKeyPress);
+    };
+  }, []);
 
   return (
-    <div className="dropdown">
-      <button className="dropdown-button" onClick={toggleDropdown}>
-        {title}
-      </button>
-      {isOpen && (
-        <div className="dropdown-content">
-          {items.map((item, index) => (
-            <div key={index} className="dropdown-item">
-              {item}
-            </div>
-          ))}
+      <div className={`dropdown-menu ${isOpen && 'dropdown-menu_active'}`} ref={containerRef} onClick={toggleMenu}>
+        <Icon size={20} color={isOpen ? '#fff' : '#27272a'} strokeWidth={2} />
+        <div className="dropdown-button">
+          {selectedOption || placeholder}
         </div>
-      )}
-      {isOpen && (
-        <div className="dropdown-overlay" onClick={closeDropdown}></div>
-      )}
-    </div>
+        {isOpen && (
+          <ul className={`dropdown-list ${isOpen ? 'show' : ''}`}>
+            {options.map((option) => (
+              <li
+                key={option}
+                className="dropdown-item"
+                onClick={() => handleOptionClick(option)}
+              >
+                {option}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
   );
-}
+};
 
 export default DropdownMenu;
+
