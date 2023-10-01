@@ -1,0 +1,37 @@
+.slide-in-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0); 
+    z-index: 5;
+    display: flex;
+    flex-direction: row-reverse;
+    transition: right 0.3s ease-in-out;
+}
+
+.overlay {
+    flex: 1;
+    display: flex; 
+    justify-content: center;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    margin-top: 45px;
+}
+
+.panel {
+    flex: 3;
+    background-color: #fff;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.open {
+    right: 0;
+}

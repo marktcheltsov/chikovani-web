@@ -1,0 +1,21 @@
+.menu-link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    transition: opacity 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+
+.menu-link:hover {
+    opacity: 0.6;
+}
+
+.menu-link:active {
+    opacity: 0.6;
+}
+
+.menu-link_active {
+    text-decoration: underline;
+    opacity: 0.6;
+}

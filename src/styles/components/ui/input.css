@@ -4,10 +4,18 @@
     padding: 5px;
     display: flex;
     align-items: center;
-    transition: border-color color 0.3s ease;
+    transition: border-color 0.3s ease;
     border-color: #333333;
     margin: 10px;
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    background-color: #333333;
+    color: #fff;
+    border: none;
+}
+
 
 .input__container_error {
     border-color: #7F1D1D;
