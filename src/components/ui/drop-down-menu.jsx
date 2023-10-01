@@ -13,27 +13,29 @@ const DropdownMenu = ({ options, onSelect, icon: Icon, placeholder }) => {
   const closeMenu = () => {
     setIsOpen(false);
   };
+
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
     onSelect(option);
   };
 
-  const handleOutsideClick = (e) => {
-    if (containerRef.current && !containerRef.current.contains(e.target)) {
-      closeMenu();
-    }
-  };
-
-  const handleKeyPress = (e) => {
-    if (e.key === 'Escape') {
-      closeMenu();
-    }
-  };
-
   useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (containerRef.current && !containerRef.current.contains(e.target)) {
+        closeMenu();
+      }
+    };
+    
+    const handleKeyPress = (e) => {
+      if (e.key === 'Escape') {
+        closeMenu();
+      }
+    };
+
     window.addEventListener('click', handleOutsideClick);
     window.addEventListener('keydown', handleKeyPress);
+
     return () => {
       window.removeEventListener('click', handleOutsideClick);
       window.removeEventListener('keydown', handleKeyPress);
